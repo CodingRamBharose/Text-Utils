@@ -1,0 +1,64 @@
+import React,{useState} from 'react';
+
+export default function TextForm(props) {
+    const handlUpClick=()=>{
+        let newText=text.toUpperCase();
+        settext(newText);
+    }
+    const handleLoClick=()=>{
+        let newText=text.toLowerCase();
+        settext(newText);
+    }
+    
+    const handleReClick=()=>{
+        // let splitString=text.split("");
+        // let reverseString=splitString.reverse();
+        // let newText=reverseString.join("");
+        let newText = text.split("").reverse().join("");
+        settext(newText);
+    }
+    
+    const handleEsClick=()=>{
+        let newText=text.split(/[ ]+/).join(" ");
+        settext(newText);
+    }
+    
+    const handleCpClick=()=>{
+        var text = document.getElementById("floatingTextarea");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    
+    const handleClClick=()=>{
+        let newText=("");
+        settext(newText);
+    }
+
+    const handleOnChange=(event)=>{
+        settext(event.target.value);
+    }
+    const [text,settext]=useState('');
+  return (
+    <div>
+        <h1>{props.heading}</h1>
+        <div class="mb-3">
+            <textarea class="form-control" value={text} onChange={handleOnChange} id="floatingTextarea" rows="8"></textarea>
+        </div>
+        <button className="btn btn-primary" onClick={handlUpClick}>Convert To Uppercase</button>
+        <button className="btn btn-secondary mx-3" onClick={handleLoClick}>Convert To LowerCase</button>
+        <button className="btn btn-success" onClick={handleReClick}>Convert to Reverse</button>
+        <button className="btn btn-danger mx-3" onClick={handleEsClick}>Remove Extra Spaces</button>
+        <button className="btn btn-warning" onClick={handleCpClick}>Copy Text</button>
+        <button className="btn btn-info mx-3" onClick={handleClClick}>Clear Text</button>
+        <div className="container my-3">
+            <h1>Your Text Summary</h1>
+            <p>{text.split(/\s+/).filter((element)=>{return element.length!=0}).length} Words And {text.length} Character</p>
+            <p>{0.008 * text.split(" ").filter((element)=>{return element.length!=0}).length} Minutes To Read</p>
+            <h2>Preview</h2>
+            <p>{text.length>0?text:"Nothing To Preview"}</p>
+        </div>
+    </div>
+  )
+}
+
+
