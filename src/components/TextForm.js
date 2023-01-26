@@ -45,11 +45,11 @@ export default function TextForm(props) {
         </div>
         <div className='buttons'>
         <button className="btn btn-primary" onClick={handlUpClick}>Convert To Uppercase</button>
-        <button className="btn btn-secondary" onClick={handleLoClick}>Convert To LowerCase</button>
-        <button className="btn btn-success" onClick={handleReClick}>Convert to Reverse</button>
-        <button className="btn btn-danger" onClick={handleEsClick}>Remove Extra Spaces</button>
+        <button className="btn btn-success" onClick={handleLoClick}>Convert To LowerCase</button>
+        <button className="btn btn-secondary" onClick={handleReClick}>Convert to Reverse</button>
+        <button className="btn btn-info" onClick={handleEsClick}>Remove Extra Spaces</button>
         <button className="btn btn-warning" onClick={handleCpClick}>Copy Text</button>
-        <button className="btn btn-info" onClick={handleClClick}>Clear Text</button>
+        <button className="btn btn-danger" onClick={handleClClick}>Clear Text</button>
         </div>
         <div className="container my-3">
             <h1>Your Text Summary</h1>
