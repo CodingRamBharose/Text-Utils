@@ -49,6 +49,7 @@ body{
 }
 .btn{
   min-width: 160px;
+  margin: 8px;
   font-size: 14px;
 }
 
@@ -56,5 +57,16 @@ body{
   .btn{
     min-width: 155px;
     font-size: 12px;
+  }
+}
+
+@media(max-width:365px){
+  .heading{
+    font-size: 24px;
+  }
+  .btn{
+    min-width: 115px;
+    margin: 6px;
+    font-size: 9px;
   }
 }
